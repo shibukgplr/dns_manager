@@ -4,7 +4,12 @@ from config import Config
 import threading
 
 def run_dns_server():
-    dns_server = DNSServer(Config.DNS_SERVER_HOST, Config.DNS_SERVER_PORT)
+    # Enable recursive resolution (set False for authoritative-only)
+    dns_server = DNSServer(
+        Config.DNS_SERVER_HOST, 
+        Config.DNS_SERVER_PORT, 
+        recursive=True  # Change to False to disable recursive resolution
+    )
     dns_server.start()
 
 def run_web_app():

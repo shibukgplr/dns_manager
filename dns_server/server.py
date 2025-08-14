@@ -5,10 +5,11 @@ from dns_server.resolver import DNSResolver
 from config import Config
 
 class DNSServer:
-    def __init__(self, host, port):
+    def __init__(self, host, port, recursive=True):
         self.host = host
         self.port = port
-        self.resolver = DNSResolver()
+        self.recursive = recursive
+        self.resolver = DNSResolver(recursive=recursive)
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.running = False
@@ -21,7 +22,7 @@ class DNSServer:
         self.tcp_socket.bind((self.host, self.port))
         self.tcp_socket.listen(5)
         
-        print(f"DNS server started on {self.host}:{self.port}")
+        print(f"DNS server started on {self.host}:{self.port} (Recursive: {'Yes' if self.recursive else 'No'})")
         
         udp_thread = threading.Thread(target=self._udp_handler)
         tcp_thread = threading.Thread(target=self._tcp_handler))
