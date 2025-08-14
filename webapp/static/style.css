@@ -1,0 +1,61 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+    padding-bottom: 60px;
+}
+
+/* Card Styles */
+.card {
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: 500;
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    font-weight: 500;
+    background-color: #f8f9fa;
+}
+
+/* Form Styles */
+.form-control:focus, .form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Navbar Styles */
+.navbar {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Breadcrumb Styles */
+.breadcrumb {
+    background-color: transparent;
+    padding: 0.75rem 0;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 0.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .table-responsive {
+        border: none;
+    }
+}

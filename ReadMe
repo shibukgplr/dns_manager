@@ -1,0 +1,73 @@
+Security and Usage Notice:
+--------------------------
+This project is intended for educational purposes only. 
+Do not deploy it in a production environment without:
+
+1. Comprehensive security review
+2. Verification of all configuration parameters
+3. Proper performance testing
+4. Implementation of additional security measures
+
+Production deployment without proper evaluation may expose your systems to:
+- Security vulnerabilities
+- Performance issues
+- Data integrity risks
+
+Always consult with IT security professionals before using educational code in production environments.
+
+Regards, Shibu KG
+
+
+
+
+
+dns-server/
+│
+├── dns_server/               
+│   ├── __init__.py
+│   ├── server.py             
+│   └── resolver.py           
+│
+├── webapp/                   
+    ├── forms.py 
+│   ├── __init__.py             
+│   ├── models.py             
+│   ├── routes.py             
+│   ├── templates/            
+│   │   ├── base.html           
+│   │   ├── index.html          
+│   │   ├── login.html     
+│   │   ├── domain.html 
+│   │   ├── add_domain.html  
+│   │   ├── add_record.html 
+│   │   └── edit_record.html 
+│   ├── static/               
+│   │   └── style.css  
+│   └── auth.py               
+│
+├── config.py                 
+├── requirements.txt          
+├── setup_database.py         
+└── run.py                    
+
+
+Install MariaDB;
+
+sudo apt-get update
+sudo apt-get install mariadb-server
+sudo mysql_secure_installation
+
+sudo mysql -u root -p
+CREATE DATABASE dns_manager;
+CREATE USER 'dnsadmin'@'localhost' IDENTIFIED BY 'Dn5Manage@r';
+GRANT ALL PRIVILEGES ON dns_manager.* TO 'dnsadmin'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+
+
+
+Running the app;
+
+Init the DB # python setup_database.py
+Run the app # python run.py
+Use Gunicorn/reverse proxy for prod env # gunicorn -w 4 -b 0.0.0.0:5000 "run:create_app()" , use nginx.

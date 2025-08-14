@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Domains{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">DNS Domains</h2>
+    
+    <div class="d-flex justify-content-between mb-3">
+        <a href="{{ url_for('main.add_domain') }}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Add Domain
+        </a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Domain Name</th>
+                            <th>Records</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for domain in domains %}
+                        <tr>
+                            <td>
+                                <strong>{{ domain.name }}</strong>
+                                {% if domain.description %}
+                                <br><small class="text-muted">{{ domain.description }}</small>
+                                {% endif %}
+                            </td>
+                            <td>{{ domain.records|length }}</td>
+                            <td>{{ domain.created_at.strftime('%Y-%m-%d') }}</td>
+                            <td>
+                                <a href="{{ url_for('main.domain', domain_id=domain.id) }}" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-eye"></i> View
+                                </a>
+                                {% if current_user.is_admin %}
+                                <a href="{{ url_for('main.delete_domain', domain_id=domain.id) }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
