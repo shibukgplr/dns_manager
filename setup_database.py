@@ -13,6 +13,6 @@ with app.app_context():
         admin.set_password('admin')  # Change this in production!
         db.session.add(admin)
         db.session.commit()
-        print("Admin user created: username=admin, password=P@ssw0rd_wanna_know!")  //setup your creds
+        print("Admin user created: username=admin, password=P@ssw0rd_wanna_know!") 
     
     print("Database setup complete.")
