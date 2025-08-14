@@ -9,6 +9,7 @@ dns-server/
 │   ├── server.py             
 │   └── resolver.py          
 │
+
 ├── webapp/                   
 │   ├── __init__.py
 │   ├── models.py             
@@ -25,6 +26,7 @@ dns-server/
 │   │   └── style.css
 │   └── auth.py               
 │
+
 ├── config.py                 
 ├── requirements.txt          
 ├── setup_database.py         
