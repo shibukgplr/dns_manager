@@ -9,10 +9,10 @@ with app.app_context():
     
     # Create admin user if not exists
     if not User.query.filter_by(username='admin').first():
-        admin = User(username='admin', email='admin@example.com', is_admin=True)
+        admin = User(username='admin', email='shibukgplr@gmail.com', is_admin=True)
         admin.set_password('admin')  # Change this in production!
         db.session.add(admin)
         db.session.commit()
-        print("Admin user created: username=admin, password=admin")  //setup your creds
+        print("Admin user created: username=admin, password=P@ssw0rd_wanna_know!")  //setup your creds
     
     print("Database setup complete.")
