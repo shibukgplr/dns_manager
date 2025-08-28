@@ -10,10 +10,10 @@ pycryptodome==3.18.0
 dnspython>=2.3.0
 
 
-shibu_k@BMLITSHIBUK:~/codes/dns-server$ git fetch origin
-shibu_k@BMLITSHIBUK:~/codes/dns-server$ git reset --hard origin/main
-shibu_k@BMLITSHIBUK:~/codes/dns-server$ git add -A .
-shibu_k@BMLITSHIBUK:~/codes/dns-server$ git commit -m "Complete DNS server implementation with root servers"
-shibu_k@BMLITSHIBUK:~/codes/dns-server$ git push -f origin main
+~/codes/dns-server$ git fetch origin
+~/codes/dns-server$ git reset --hard origin/main
+~/codes/dns-server$ git add -A .
+~/codes/dns-server$ git commit -m "Complete DNS server implementation with root servers"
+~/codes/dns-server$ git push -f origin main
 https://github.com/shibukgplr/dns_manager.git
-shibu_k@BMLITSHIBUK:~/codes/dns-server$
+~/codes/dns-server$
